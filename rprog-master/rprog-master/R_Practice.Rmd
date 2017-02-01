@@ -1,0 +1,28 @@
+---
+title: "R - Practice"
+author: "Karim Lameer"
+date: "Thursday, May 07, 2015"
+output: html_document
+---
+
+Summary document to practice R commands.
+
+# Set working directory
+setwd("C:\\Users\\Karim\\SkyDrive\\Documents\\codebase\\Coursera Data Science\\rprog")
+write.table(diamonds, file="diamonds.csv", sep=",")
+
+# Download file from the internet
+download.file(url="urlname", dest="destfilename")
+
+# read csv specifying column types
+head(diamonds)
+diamonds2 = read.csv("diamonds.csv", colClasses=c(carat="numeric"), header=TRUE)
+
+# Subset the data using subset command and dataframe subsetting
+head(diamonds2)
+diamondSubset = subset(diamonds, cut=="Premium" & color=="E")
+diamondSubset = diamonds[diamonds$cut=="Premium" & diamonds$color=="E",c("x", "y", "z")]
+
+# Important R Commands
+## apply
+head(diamonds2)

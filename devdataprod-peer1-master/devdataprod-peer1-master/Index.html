@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Central Limit Theorem</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Central Limit Theorem">
+  <meta name="author" content="Karim Lameer">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Central Limit Theorem</h1>
+    <h2>Play around with the central limit theorem</h2>
+    <p>Karim Lameer<br/>internet</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Summary</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This is a shiny app that tests the theory of the central limit theorem. 
+The app gives you the ability to play around with the relevant variables
+of a probability distribution and shows how this feeds into the CLT.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Description</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>What is the central limit theorem</h1>
+
+<p>The central limit theorem states that from a probability distribution (which doesn&#39;t have to be 
+normally distributed), if you take samples of a specified number (n) and find the means of these samples,
+the distribution of these means will be normally distributed. </p>
+
+<p>There are many theories where this can be proved but it is also something that can be observed 
+practically. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How it is done</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The variables that are used are relevant to the original distribution and the samples that are 
+drawn from it. </p>
+
+<p>They are:</p>
+
+<ul>
+<li>Population Mean </li>
+<li>Population Standard Deviation</li>
+<li>Sample Size - the number of draws in the sample. For example if there is a population of 100 we will draw 3 items.</li>
+<li>Number of trials - The number of times you draw the sample. </li>
+</ul>
+
+<p>The resulting histogram will be a function of all the variables above. Changing any one of the variables will
+change the histogram. The curve, or lack thereof, the histogram is determined by the last 2 variables. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Code</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The same code used to create the published histogram is given below. Please run it and enjoy!</p>
+
+<pre><code class="r">mu=100
+sigma=10
+n = 50
+numTrials = 500
+xbar=rep(0,500)
+for(i in 1:numTrials){xbar[i] = mean(as.integer(rnorm(n, mean=mu, sd=sigma)))}
+hist(xbar, prob=TRUE, breaks=100)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Summary'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Description'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How it is done'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The Code'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

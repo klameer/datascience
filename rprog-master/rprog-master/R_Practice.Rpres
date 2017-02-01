@@ -1,0 +1,38 @@
+R_Practice
+========================================================
+author: Karim
+date: 07/05/2015
+
+This presentation is to practice R commands and concepts
+
+Starting up
+========================================================
+### Setting working directory and including libraries
+```{r}
+setwd("C:\\Users\\Karim\\SkyDrive\\Documents\\codebase\\Coursera Data Science\\rprog")
+library(ggplot2)
+
+```
+
+File Management
+========================================================
+Download a file 
+```{r}
+# download.file(url="url here", dest="location plus filename")
+```
+
+Save a dataframe to CSV
+```{r}
+write.table(diamonds, file="diamonds.csv", sep=",")
+```
+
+
+Read file and corce column type
+```{r}
+diamonds2 = read.csv(file="diamonds.csv", colClasses=c(carat="numeric"), header=TRUE)
+```
+
+
+Subsetting a dataframe
+========================================================
+
